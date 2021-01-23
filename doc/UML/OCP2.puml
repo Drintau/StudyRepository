@@ -1,0 +1,25 @@
+@startuml
+
+class GraphicsEditor{
+    draw(Shape);
+}
+note right of GraphicsEditor
+draw(Shape shape){
+    shape.draw();
+};
+end note
+class Circle{
+    draw();
+}
+class Rectangle{
+    draw();
+}
+abstract class Shape{
+    draw();
+}
+
+GraphicsEditor --> Shape
+Shape <|-- Circle
+Shape <|-- Rectangle
+
+@enduml
