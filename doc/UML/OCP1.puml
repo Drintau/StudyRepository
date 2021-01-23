@@ -23,9 +23,9 @@ class Shape{
     int type;
 }
 
-GraphicsEditor --> Circle
-GraphicsEditor --> Shape
-GraphicsEditor --> Rectangle
+GraphicsEditor ..> Circle
+GraphicsEditor ..> Shape
+GraphicsEditor ..> Rectangle
 Shape <|-- Circle
 Shape <|-- Rectangle
 

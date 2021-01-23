@@ -1,28 +1,60 @@
 @startuml
 
-interface interface{
+interface I{
     void m1()
     void m2()
     void m3()
     void m4()
     void m5()
 }
-class A
+
+class A{
+    void m1(I i)
+    void m2(I i)
+    void m3(I i)
+}
 note left of A
 A通过接口依赖B
 但只用接口方法1,2,3
+void m1(I i){i.m1()}
+void m2(I i){i.m2()}
+void m3(I i){i.m3()}
 end note
-class B
-class C
+
+class B{
+    void m1()
+    void m2()
+    void m3()
+    void m4()
+    void m5()
+}
+
+class C{
+    void m1(I i)
+    void m4(I i)
+    void m5(I i)
+}
 note right of C
 C通过接口依赖D
 但只用接口方法1,4,5
+void m1(I i){i.m1()}
+void m4(I i){i.m4()}
+void m5(I i){i.m5()}
 end note
-class D
 
-A ..> interface
-C ..> interface
-interface <|-- B
-interface <|-- D
+class D{
+    void m1()
+    void m2()
+    void m3()
+    void m4()
+    void m5()
+}
+
+A ..> I
+C ..> I
+I <|-- B
+I <|-- D
+A ..> B
+C ..> D
 
 @enduml

@@ -1,28 +1,44 @@
 @startuml
 
-interface interface1{
+interface I1{
     void m1()
 }
-interface interface2{
+interface I2{
     void m2()
     void m3()
 }
-interface interface3{
+interface I3{
     void m4()
     void m5()
 }
-class A
-class B
-class C
-class D
+class A{
+    void m1(I1 i)
+    void m2(I2 i)
+    void m3(I2 i)
+}
+class B{
+    void m1()
+    void m2()
+    void m3()
+}
+class C{
+    void m1(I1 i)
+    void m4(I3 i)
+    void m5(I3 i)
+}
+class D{
+    void m1()
+    void m4()
+    void m5()
+}
 
-A ..> interface1
-A ..> interface2
-C ..> interface1
-C ..> interface3
-interface1 <|-- B
-interface2 <|-- B
-interface1 <|-- D
-interface3 <|-- D
+A ..> I1
+A ..> I2
+C ..> I1
+C ..> I3
+I1 <|-- B
+I2 <|-- B
+I1 <|-- D
+I3 <|-- D
 
 @enduml
