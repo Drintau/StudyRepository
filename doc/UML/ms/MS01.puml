@@ -1,0 +1,39 @@
+@startuml
+
+abstract class A{
+    m1()
+    m2()
+    m3()
+}
+class A1{
+    m1()
+    m2()
+    m3()
+}
+class A2{
+    m1()
+    m2()
+    m3()
+}
+class SimpleFactory{
+    A createA(int type)
+}
+note right of SimpleFactory
+A createA(int type){
+    A a;
+    if(type == A1.type){
+        a = new A1();
+    }else if(type == A2.type){
+        a = new A2();
+    }
+    return a;
+}
+end note
+
+SimpleFactory ..> A
+SimpleFactory ..> A1
+SimpleFactory ..> A2
+A <|-- A1
+A <|-- A2
+
+@enduml
