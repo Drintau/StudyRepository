@@ -1,21 +1,8 @@
 @startuml
 
-abstract class AbstractProduct{
-    m1()
-}
-note left of AbstractProduct: 抽象产品类，\n可以是抽象类，\n也可以是接口
-class ProductA1{
-    m1()
-}
-class ProductA2{
-    m1()
-}
-class ProductB1{
-    m1()
-}
-class ProductB2{
-    m1()
-}
+abstract class AbstractProduct{}
+class ProductA{}
+class ProductB{}
 
 interface AbstractFactory{
     AbstractProduct createProduct()
@@ -23,20 +10,28 @@ interface AbstractFactory{
 class AFactory{
     AbstractProduct createProduct()
 }
+note bottom of AFactory
+AbstractProduct createProduct(){
+    return new ProductA();
+}
+end note
 class BFactory{
     AbstractProduct createProduct()
 }
+note bottom of BFactory
+AbstractProduct createProduct(){
+    return new ProductB();
+}
+end note
 
+AbstractFactory ..> AbstractProduct
 AbstractFactory <|.. AFactory
 AbstractFactory <|.. BFactory
-AFactory ..> ProductA1
-AFactory ..> ProductA2
-BFactory ..> ProductB1
-BFactory ..> ProductB2
 
-ProductA1 --|> AbstractProduct
-ProductA2 --|> AbstractProduct
-ProductB1 --|> AbstractProduct
-ProductB2 --|> AbstractProduct
+AbstractProduct <|-- ProductA
+AbstractProduct <|-- ProductB
+
+AFactory ..> ProductA
+BFactory ..> ProductB
 
 @enduml
