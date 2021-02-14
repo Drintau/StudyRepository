@@ -1,0 +1,38 @@
+@startuml
+
+abstract class AbstractProduct1{}
+abstract class AbstractProduct2{}
+class ProductA{}
+class ProductB{}
+
+interface AbstractFactory{
+    AbstractProduct createProduct()
+}
+class AFactory{
+    AbstractProduct createProduct()
+}
+note bottom of AFactory
+AbstractProduct createProduct(){
+    return new ProductA();
+}
+end note
+class BFactory{
+    AbstractProduct createProduct()
+}
+note bottom of BFactory
+AbstractProduct createProduct(){
+    return new ProductB();
+}
+end note
+
+AbstractFactory ..> AbstractProduct
+AbstractFactory <|.. AFactory
+AbstractFactory <|.. BFactory
+
+AbstractProduct <|-- ProductA
+AbstractProduct <|-- ProductB
+
+AFactory ..> ProductA
+BFactory ..> ProductB
+
+@enduml

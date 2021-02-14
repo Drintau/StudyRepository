@@ -1,0 +1,26 @@
+@startuml
+
+interface Animal{
+    void eat()
+    void fly()
+    void swim()
+}
+
+class Dog{
+    void eat()
+    void fly()
+    void swim()
+}
+note left of Dog: 狗不会飞，\nfly()抛出异常
+
+class Bird{
+    void eat()
+    void fly()
+    void swim()
+}
+note right of Bird: 鸟不会游泳，\nswim()抛出异常
+
+Animal <|-- Dog
+Animal <|-- Bird
+
+@enduml
