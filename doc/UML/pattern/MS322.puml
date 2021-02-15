@@ -32,6 +32,8 @@ AbstractProduct <|-- ProductA
 AbstractProduct <|-- ProductB
 
 AFactory ..> ProductA
+AFactory .> AbstractProduct
 BFactory ..> ProductB
+AbstractProduct <. BFactory
 
 @enduml
