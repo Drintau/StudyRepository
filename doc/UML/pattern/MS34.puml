@@ -1,0 +1,63 @@
+@startuml
+
+class Product{
+    part1
+    part2
+    part3
+}
+class Director{
+    Product build(Builder b)
+}
+note right of Director
+示例代码
+public Product build(Builder b){
+    b.buildPart1();
+    b.buildPart2();
+    b.buildPart3();
+    return b.build();
+}
+end note
+interface Builder{
+    void buildPart1()
+    void buildPart2()
+    void buildPart3()
+    Product build()
+}
+class Builder1{
+    {field} Product p = new Product()
+    void buildPart1()
+    void buildPart2()
+    void buildPart3()
+    Product build()
+}
+note right of Builder1
+示例代码
+同Builder2
+end note
+class Builder2{
+    {field} Product p = new Product()
+    void buildPart1()
+    void buildPart2()
+    void buildPart3()
+    Product build()
+}
+note right of Builder2
+Product p = new Product();
+
+public void buildPart1(){
+    p.setPart1();
+}
+// buildPart2,buildPart3类似
+
+public Product build(){
+    return p;
+}
+end note
+
+Director .> Product
+Director ..> Builder
+Builder <|.. Builder1
+Builder <|.. Builder2
+Builder .> Product
+
+@enduml

@@ -3,6 +3,9 @@ package mjhct.designpattern.pattern.prototype;
 import java.io.*;
 import java.util.Date;
 
+/**
+ * 原型模式
+ */
 public class DeepClone implements Cloneable, Serializable {
 
     private String name;
