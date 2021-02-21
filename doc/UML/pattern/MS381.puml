@@ -1,0 +1,45 @@
+@startuml
+
+interface Strategy{
+    void m1()
+}
+
+class Strategy1{
+    void m1()
+}
+class Strategy2{
+    void m1()
+}
+
+class User{
+    Strategy s
+    void useStrategy()
+}
+note right
+public void useStrategy(){
+    s.m1();
+}
+end note
+
+class Client{}
+note left
+main(){
+    Strategy1 s1 = new Strategy1();
+    User u = new User(s1);
+    u.useStrategy();
+
+    // 运行时替换
+    Strategy2 s2 = new Strategy2();
+    u.setStrategy(s2);
+    u.useStrategy();
+}
+end note
+
+Strategy <|.. Strategy1
+Strategy <|.. Strategy2
+User o-- Strategy
+Client ..> User
+Client ..> Strategy1
+Client ..> Strategy2
+
+@enduml
