@@ -1,0 +1,73 @@
+@startuml
+
+abstract class Component {
+    getLeaves()
+    m2()
+    m3()
+
+}
+note left
+不知道取什么名字时就叫 Component（组件）
+
+// 节点独有方法，例如获取叶子
+public void getLeaves(){
+    // 抛异常
+}
+
+// 叶子独有方法
+public void m2(){
+    // 抛异常
+}
+public void m3(){
+    // 抛异常
+}
+end note
+
+class Composite {
+    List<Component> Leaves
+    m1()
+}
+note bottom
+节点
+public void getLeaves(){
+    // 重写逻辑
+}
+
+end note
+
+class Leaf {
+    m2()
+    m3()
+}
+note bottom
+叶子
+public void m2(){
+    // // 重写逻辑
+}
+public void m3(){
+    // // 重写逻辑
+}
+end note
+
+class Client{}
+note right
+main(){
+    Component c = new Composite();
+
+    try{
+        c.getLeaves();
+        // 获取节点的叶子之后的操作
+
+    } catch(Exception e){
+        // 不是节点，会抛出异常，吞异常
+    }
+
+}
+end note
+
+Component <|-- Composite
+Component <|-- Leaf
+
+Component <. Client
+
+@enduml
