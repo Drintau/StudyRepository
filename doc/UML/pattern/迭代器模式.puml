@@ -1,0 +1,33 @@
+@startuml
+
+interface Aggregate {
+    Object add()
+    Iterator getIterator()
+}
+note top
+聚合对象接口，就是个集合
+还可以命名为：可迭代的 IteratorAble
+能够对外提供自身的迭代器
+end note
+
+interface Iterator{
+    boolean hasNext()
+    Object next()
+}
+note right
+迭代器接口，两个方法
+是否有下一个
+获取下一个
+end note
+
+class Aggregate1{}
+note bottom: 具体聚合对象
+class Aggregate1Iterator{}
+note bottom: 具体迭代器实现
+
+Aggregate *- Iterator
+Aggregate <|.. Aggregate1
+Iterator <|.. Aggregate1Iterator
+Aggregate1 *- Aggregate1Iterator
+
+@enduml
