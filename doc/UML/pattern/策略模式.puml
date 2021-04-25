@@ -38,8 +38,6 @@ end note
 Strategy <|.. Strategy1
 Strategy <|.. Strategy2
 User o-- Strategy
-Client ..> User
-Client ..> Strategy1
-Client ..> Strategy2
+Client .> User
 
 @enduml

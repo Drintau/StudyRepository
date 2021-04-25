@@ -41,7 +41,8 @@ main(){
     m3(b);
 
     // A适配后就可以这样用了
-    I aAdapter = new AAdapter();
+    A a = new A();
+    I aAdapter = new AAdapter(a);
     m3(aAdapter);
 }
 end note
@@ -50,14 +51,13 @@ I <|.. B
 I <|.. AAdapter
 AAdapter o-- A
 Client ..> I
-Client ..> B
-Client ..> AAdapter
 
 note as N1
-I、B是示例功能用到的接口与类，与适配器模式无关
-A是原有的类，AAdapter是适配器，目的是复用Client的m3()代码
+I、B表示新功能用到的接口与类。
+A是以前的类，AAdapter是适配器，
+目的是复用Client的m3()代码。
 end note
-I .. N1
-B .. N1
+N1 . I
+N1 .. B
 
 @enduml
