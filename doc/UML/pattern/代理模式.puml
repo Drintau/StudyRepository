@@ -1,0 +1,35 @@
+@startuml
+
+interface Subject {
+    m1()
+}
+
+class RealSubject {
+    m1()
+}
+note left
+被代理对象
+end note
+
+class Proxy {
+    Subject subject
+    m1()
+}
+note right
+代理对象
+聚合类型使用Subject而不是RealSubject，
+是为了扩展，不会只能代理指定类。
+m1() {
+    // 代理对象额外操作
+
+    subject.m1();
+
+    // 代理对象额外操作
+}
+end note
+
+Subject <|.. RealSubject
+Subject <|.. Proxy
+Subject --o Proxy
+
+@enduml
