@@ -1,0 +1,25 @@
+@startuml
+
+class FlyweightFactory{
+    Map<String, Flyweight> flyweights
+    Flyweight getFlyweight(String key)
+}
+
+abstract class Flyweight{
+}
+
+class Flyweight1{
+}
+
+class Flyweight2{
+}
+
+class Client{}
+
+Flyweight <|-- Flyweight1
+Flyweight <|-- Flyweight2
+FlyweightFactory o- Flyweight
+Client ..> FlyweightFactory
+Client ..> Flyweight
+
+@enduml
