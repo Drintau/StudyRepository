@@ -1,0 +1,34 @@
+@startuml
+
+abstract class Abstraction{
+    Implementor i
+    Abstraction(Implementor i)
+    m1()
+}
+note top
+抽象角色，包含一个实现角色的引用
+方法具体调用到实现角色的方法
+m1(){
+    i.m2()
+}
+end note
+
+class Abstraction1{}
+
+class Abstraction2{}
+
+abstract class Implementor{
+    m2()
+}
+
+class Implementor1{}
+
+class Implementor2{}
+
+Abstraction o- Implementor
+Abstraction <|-- Abstraction1
+Abstraction <|-- Abstraction2
+Implementor <|-- Implementor1
+Implementor <|-- Implementor2
+
+@enduml
