@@ -1,0 +1,33 @@
+@startuml
+
+class Facade{
+    A a
+    B b
+    C c
+    do()
+}
+note left
+do(){
+    a.m1()
+    c.m3()
+    b.m2()
+}
+end note
+
+class A {
+    m1()
+}
+
+class B{
+    m2()
+}
+
+class C{
+    m3()
+}
+
+Facade o-- A
+Facade o-- B
+Facade o-- C
+
+@enduml
