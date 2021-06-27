@@ -1,0 +1,34 @@
+@startuml
+
+abstract class Mediator{
+    List<Colleague> list
+    register(Colleague colleague)
+}
+note top
+抽象中介者
+每一个具体的中介者都维护一个同事类的集合
+end note
+
+class Mediator1{
+}
+
+abstract class Colleague{
+    Mediator mediator
+    setMediator(Mediator m)
+}
+note right
+抽象同事类
+每一个具体同事类都持有中介者的引用
+end note
+
+class Colleague1{}
+
+class Colleague2{}
+
+Mediator <|-- Mediator1
+Mediator o- Colleague
+Mediator -o Colleague
+Colleague <|-- Colleague1
+Colleague <|-- Colleague2
+
+@enduml
