@@ -1,0 +1,42 @@
+@startuml
+
+interface Command{
+    execute()
+    undo()
+}
+note left
+抽象命令
+undo()是非必须的
+end note
+
+class Command1{
+    Receiver1 r1
+    execute()
+    undo()
+}
+note left
+void execute(){
+    r1.doSomeThing();
+}
+end note
+
+class Command2{
+    Receiver2 r2
+    execute()
+    undo()
+}
+
+class Receiver1{}
+
+class Receiver2{}
+
+class Client{}
+
+Command <|.. Command1
+Command <|.. Command2
+Command1 o-- Receiver1
+Command2 o-- Receiver2
+Client ..> Command
+
+
+@enduml
