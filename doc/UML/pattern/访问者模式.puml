@@ -1,0 +1,90 @@
+@startuml
+
+interface Visitor{
+    visit(Element e)
+}
+note left
+抽象访问者
+end note
+
+class Visitor1{
+    visit(Element e)
+}
+note bottom
+具体访问者1
+void visit(Element e){
+    // 直接输出e
+}
+end note
+
+class Visitor2{
+    visit(Element e)
+}
+note bottom
+具体访问者2
+void visit(Element e){
+    // 打印访问时间，然后输出e
+}
+end note
+
+class ObjectStructure {
+    List<Element> elements
+    accept(Visitor v)
+}
+note top
+被访问的对象
+结构比较固定
+void accept(Visitor v){
+    for(Element e:os.elements){
+        e.accept(v);
+    }
+}
+end note
+
+abstract Element{
+    accept(Visitor v)
+}
+note right
+抽象元素
+end note
+
+class Element1{
+    accept(Visitor v)
+}
+note bottom
+void accept(Visitor v) {
+    // 调用Visitor的指定方法
+    v.visit(this);
+}
+end note
+
+class Element2{
+    accept(Visitor v)
+}
+
+class Client{}
+note top
+void main(){
+    ObjectStructure os = new ObjectStructure();
+    Visitor v1 = new Visitor1();
+    Visitor v2 = new Visitor2();
+    os.accept(v1);
+    // 不同访问者结果不同
+    os.accept(v2);
+}
+end note
+
+Visitor <|.. Visitor1
+Visitor <|.. Visitor2
+
+ObjectStructure o- Element
+Element <|-- Element1
+Element <|-- Element2
+
+Visitor <. Element
+
+Client .> ObjectStructure
+Client ..> Visitor
+
+
+@enduml
