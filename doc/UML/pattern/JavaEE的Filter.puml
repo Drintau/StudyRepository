@@ -1,0 +1,20 @@
+@startuml
+
+interface Filter{
+    void doFilter(ServletRequest request , ServletResponse response , FilterChain chain)
+}
+
+class FilterChain{
+    List<Filter> filters
+}
+
+class AFilter{}
+
+class BFilter{}
+
+Filter <|.. AFilter
+Filter <|.. BFilter
+
+FilterChain o-- Filter
+
+@enduml
