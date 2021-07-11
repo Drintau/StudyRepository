@@ -20,7 +20,7 @@ class Bird{
 }
 note right of Bird: 鸟不会游泳，\nswim()抛出异常
 
-Animal <|-- Dog
-Animal <|-- Bird
+Animal <|.. Dog
+Animal <|.. Bird
 
 @enduml

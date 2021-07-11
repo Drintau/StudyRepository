@@ -22,9 +22,9 @@ class Bird{
     void fly()
 }
 
-Eatable <|-- Dog
-Swimable <|-- Dog
-Eatable <|-- Bird
-Flyable <|-- Bird
+Eatable <|.. Dog
+Swimable <|.. Dog
+Eatable <|.. Bird
+Flyable <|.. Bird
 
 @enduml

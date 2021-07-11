@@ -1,16 +1,14 @@
 @startuml
 
 class A{
-    B b;
     void m1(B b);
-    B m2();
-    void m3(B b);
 }
 note right of A
-m3(B b){
+m1(B b){
     b.printC();
 }
 end note
+
 class B{
     C c;
     C getC();
@@ -21,6 +19,7 @@ printC(){
     print(this.c);
 }
 end note
+
 class C{
 }
 
