@@ -12,11 +12,17 @@
 8. 可以安装vim等软件了。`apt-get install vim`
 9. 安装ssh（一开始安装时是可以选择安装的，当时没想到）`apt-get install ssh`，并设置。<https://www.cnblogs.com/zf29506564/p/5924764.html>、<https://www.cnblogs.com/liu-ke/p/14166097.html>
 
-## 2. 桌面环境
-现成的著名桌面环境：KDE（这个比较炫酷），GNOME，等等（百度搜就有很多）。  
-Debian桌面环境介绍<https://wiki.debian.org/zh_CN/DesktopEnvironment>
+## 2. 远程连接
+有许多远程连接linux的软件工具。  
+windows自带的PowerShell也可以。  
+```
+格式：ssh 用户名@IP地址
+示例：ssh root@192.168.56.1
+```
 
-## 3. 自定义桌面环境
+## 3. 桌面环境
+现成的著名桌面环境：KDE（这个比较炫酷），GNOME，等等（百度搜就有很多）。  
+Debian桌面环境介绍<https://wiki.debian.org/zh_CN/DesktopEnvironment>  
 参考：
 1. <https://linux.cn/article-6441-1.html>
 2. Debian文档：<https://wiki.debian.org/zh_CN/FrontPage?action=show&redirect=%E9%A6%96%E9%A1%B5>
