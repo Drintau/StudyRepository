@@ -27,9 +27,11 @@
 1. PlantUML integration：有一个开源工具PlantUML，参考 [文档](https://plantuml.com/zh/class-diagram) 画类图。
 
 ## PlantUML类图手册
-1. 依赖：A ..> B
-2. 继承：C <|-- D
-3. 实现：E <|.. F
-4. 关联：G --> H
-5. 聚合：I o-- J 小写字母o
-6. 组合：K *-- L
+```txt
+依赖：A ..> B
+继承：C <|-- D
+实现：E <|.. F
+关联：G --> H
+聚合：I o-- J 小写字母o
+组合：K *-- L
+```
