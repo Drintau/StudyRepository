@@ -20,9 +20,15 @@ E <|.. F : 实现
 
 class G{
     H h
+    M m
 }
 class H{}
+class M{
+    G g
+}
 G --> H : 关联
+G <--> M : 关联
+H - M : 关联
 
 class I{
     J j
