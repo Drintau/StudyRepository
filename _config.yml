@@ -1,1 +1,10 @@
-theme: jekyll-theme-cayman
+title: 学习Redis数据库
+description: 学习Redis数据库
+show_downloads: false
+
+theme: jekyll-theme-leap-day
+
+lang: zh-CN
+
+# markdown处理器，不填或选填：kramdown 或 GFM
+markdown: GFM
