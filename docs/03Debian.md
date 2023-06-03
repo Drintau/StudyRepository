@@ -6,28 +6,32 @@
 1. 虚拟机最低硬件要求：2个核心，1G内存；用图形化界面需要更高配置，否则卡顿
 2. 测试账号：root/1q2w3e4r, drintau/1q2w3e4r
 
-
 ## 安装
 官方文档：<https://www.debian.org/releases/stable/debian-installer/>
 
 安装程序引导语言选中文，不然安装错了就得重来。这一步会导致安装好后控制台中文乱码，到时再设置一下。
 参考：<https://www.cnblogs.com/nihaorz/p/12069699.html>
 
-把启用虚拟机网络关闭，不然后面会去网络上下载新的镜像资源。Debian安装手册第6章安装额外的软件有说明。
+虚拟机网络先断开连接，不然后面会去网络上下载新的镜像资源。Debian安装手册第6章安装额外的软件有说明。
 ![](../images/Debian安装程序会从网络上下载更新资源条件.png)
+更好的方法是先连上网，过了网络配置那一步后再断网，这样就不至于安装好后要先手动设置网络。
 
 如果前面不小心配置了网络，或确实需要用网络，那就配置一下镜像源，下载成功率高一些并快一些。
 参考：<https://blog.csdn.net/weixin_44885534/article/details/127758696>
 
-安装完基本系统后，到安装额外的软件，都是看个人需要进行选择安装的了。不过SSH server和标准系统工具选择安装一下，能省去后面很多缺东少西的麻烦。
+安装完基本系统后，到安装额外的软件，都是看个人需要进行选择安装的了。不过SSH server选择安装一下，大概率要用的。
 
 默认镜像源（安装是断网跳过选择的，不然默认可能是当时选的那个）的速度很差，设置一下国内的，比如清华大学的：<https://mirrors.tuna.tsinghua.edu.cn/help/debian/>
 
 初始只有vi，学习命令 <https://blog.csdn.net/cyl101816/article/details/82026678>
 
-可以安装vim等软件了。`apt-get install vim`
+可以安装vim等软件了。
 
-安装ssh（如果一开始跳过了，现在又需要安装的话）`apt-get install ssh`，并设置。<https://www.cnblogs.com/zf29506564/p/5924764.html>、<https://www.cnblogs.com/liu-ke/p/14166097.html>
+SSH（如果一开始跳过了，现在又需要安装的话）的安装和设置。<https://www.cnblogs.com/zf29506564/p/5924764.html>、<https://www.cnblogs.com/liu-ke/p/14166097.html>
+
+额外的网卡需要配置网络，可以抄`/etc/network/interfaces`这个文件。
+
+参考卡片很有用，重要常用的命令都在里面了。
 
 ## 远程连接
 有许多远程连接linux的软件工具。  
