@@ -2,16 +2,32 @@
 
 官网：<https://www.debian.org>
 
+## 预定信息
+1. 虚拟机最低硬件要求：2个核心，1G内存；用图形化界面需要更高配置，否则卡顿
+2. 测试账号：root/1q2w3e4r, drintau/1q2w3e4r
+
+
 ## 安装
-1. 官方文档 <https://www.debian.org/releases/stable/debian-installer/>
-2. 最低硬件要求：2个核心，1G内存
-3. 测试账号：root/1q2w3e4r, drintau/1q2w3e4r
-4. 初始只有vi，学习命令 <https://blog.csdn.net/cyl101816/article/details/82026678>
-5. 从光盘启动安装，安装界面选中文才知道要选什么（选英文可能选错了，系统都起不来），但这会导致安装好后控制台中文乱码，到时再设置一下。
-6. 设置locales为英文，否则控制台出现中文乱码。<https://www.cnblogs.com/nihaorz/p/12069699.html>
-7. 设置镜像源，用清华大学的。<https://mirrors.tuna.tsinghua.edu.cn/help/debian/>
-8. 可以安装vim等软件了。`apt-get install vim`
-9. 安装ssh（一开始安装时是可以选择安装的，当时没想到）`apt-get install ssh`，并设置。<https://www.cnblogs.com/zf29506564/p/5924764.html>、<https://www.cnblogs.com/liu-ke/p/14166097.html>
+官方文档：<https://www.debian.org/releases/stable/debian-installer/>
+
+安装程序引导语言选中文，不然安装错了就得重来。这一步会导致安装好后控制台中文乱码，到时再设置一下。
+参考：<https://www.cnblogs.com/nihaorz/p/12069699.html>
+
+把启用虚拟机网络关闭，不然后面会去网络上下载新的镜像资源。Debian安装手册第6章安装额外的软件有说明。
+![](../images/Debian安装程序会从网络上下载更新资源条件.png)
+
+如果前面不小心配置了网络，或确实需要用网络，那就配置一下镜像源，下载成功率高一些并快一些。
+参考：<https://blog.csdn.net/weixin_44885534/article/details/127758696>
+
+安装完基本系统后，到安装额外的软件，都是看个人需要进行选择安装的了。不过SSH server和标准系统工具选择安装一下，能省去后面很多缺东少西的麻烦。
+
+默认镜像源（安装是断网跳过选择的，不然默认可能是当时选的那个）的速度很差，设置一下国内的，比如清华大学的：<https://mirrors.tuna.tsinghua.edu.cn/help/debian/>
+
+初始只有vi，学习命令 <https://blog.csdn.net/cyl101816/article/details/82026678>
+
+可以安装vim等软件了。`apt-get install vim`
+
+安装ssh（如果一开始跳过了，现在又需要安装的话）`apt-get install ssh`，并设置。<https://www.cnblogs.com/zf29506564/p/5924764.html>、<https://www.cnblogs.com/liu-ke/p/14166097.html>
 
 ## 远程连接
 有许多远程连接linux的软件工具。  
@@ -39,10 +55,6 @@ Debian桌面环境介绍<https://wiki.debian.org/zh_CN/DesktopEnvironment>
 **Taskbars / panels / docks 任务栏面板**：tint2就有任务栏了。还有其他看官网介绍。
 
 **File Manager 文件管理器**：如PCManFM，这个官网就是LXDE官网里的一部分。
-
-浏览器：Firefox。Chrome装不上。Chromium有坑。
-
-输入法：好像就搜狗比较出名。
 
 **清理与监控软件**
 1. https://linux.cn/article-5864-1-rel.html
