@@ -1,4 +1,7 @@
-# 学习仓库
+---
+layout: default
+title: 学习仓库
+---
 
 [学习设计模式](StudyDesignPattern/index.md)
 
