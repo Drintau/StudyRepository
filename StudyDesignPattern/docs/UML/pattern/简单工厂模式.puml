@@ -1,0 +1,31 @@
+@startuml
+
+abstract class AbstractProduct{}
+note left of AbstractProduct: 抽象产品类，\n可以是抽象类，\n也可以是接口
+class Product1{}
+note left of Product1: 具体产品1
+class Product2{}
+note right of Product2: 具体产品2
+class SimpleFactory{
+    AbstractProduct createProduct(int type)
+}
+note right of SimpleFactory
+简单工厂
+AbstractProduct createProduct(int type){
+    AbstractProduct product;
+    if(type == Product1.type){
+        product = new Product1();
+    }else if(type == Product2.type){
+        product = new Product2();
+    }
+    return product;
+}
+end note
+
+SimpleFactory ..> AbstractProduct
+SimpleFactory ..> Product1
+SimpleFactory ..> Product2
+AbstractProduct <|-- Product1
+AbstractProduct <|-- Product2
+
+@enduml

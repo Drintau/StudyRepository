@@ -1,0 +1,63 @@
+@startuml
+
+class A{
+    void m1()
+}
+note right:以前作者写的类
+
+interface I{
+    void m2()
+}
+class B{
+    void m2()
+}
+
+class AAdapter{
+    A a
+    public AAdapter(A a)
+    void m2()
+}
+note top of AAdapter
+适配器
+public AAdapter(A a){
+    this.a=a;
+}
+public void m2(){
+    a.m1();
+}
+end note
+
+class Client{
+    void m3(I i)
+}
+note left of Client
+public void m3(I i){
+    // 一些额外操作
+    i.m2();
+}
+
+main(){
+    I b = new B();
+    m3(b);
+
+    // A适配后就可以这样用了
+    A a = new A();
+    I aAdapter = new AAdapter(a);
+    m3(aAdapter);
+}
+end note
+
+I <|.. B
+I <|.. AAdapter
+AAdapter o-- A
+Client ..> I
+
+note as N1
+I、B表示新功能用到的接口与类。
+A是以前的类，AAdapter是适配器，
+目的是复用Client的m3()代码。
+end note
+N1 . I
+N1 .. B
+
+@enduml

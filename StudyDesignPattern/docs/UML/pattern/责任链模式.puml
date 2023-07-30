@@ -1,0 +1,18 @@
+@startuml
+
+abstract class Handler{
+    Handler nextHandler
+    void handle()
+    void setNext(Handler nextHandler)
+    Handler getNext()
+}
+
+class Handler1{}
+
+class Handler2{}
+
+Handler o-- Handler
+Handler <|-- Handler1
+Handler <|-- Handler2
+
+@enduml

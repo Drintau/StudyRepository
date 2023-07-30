@@ -1,0 +1,22 @@
+@startuml
+
+class Originator {
+    createMemento()
+    restoreMemento(Memento m)
+}
+note right
+要存储状态的对象
+收集状态
+恢复状态
+end note
+
+class Memento {
+}
+note left
+备忘录
+记录状态
+end note
+
+Originator --> Memento
+
+@enduml

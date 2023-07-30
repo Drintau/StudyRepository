@@ -1,0 +1,29 @@
+@startuml
+
+class A{
+    void m1(B b);
+}
+note right of A
+m1(B b){
+    b.printC();
+}
+end note
+
+class B{
+    C c;
+    C getC();
+    void printC();
+}
+note right of B
+printC(){
+    print(this.c);
+}
+end note
+
+class C{
+}
+
+A ..> B
+B ..> C
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+
+class Person{
+    void feed(Animal animal)
+}
+note left
+void feed(Animal animal){
+    animal.eat();
+}
+end note
+interface Animal{
+    void eat()
+}
+class Dog{
+    void eat()
+}
+class Cat{
+    void eat()
+}
+
+Person ..> Animal
+Animal <|.. Dog
+Animal <|.. Cat
+
+@enduml

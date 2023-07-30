@@ -1,0 +1,37 @@
+@startuml
+
+abstract class Template{
+    void template()
+    void m1()
+    abstract void m2()
+    void m3()
+}
+note top of Template
+模板方法类：抽象类，让子类继承。
+必须让子类重写的方法定义为抽象方法；
+其他方法提供实现，允许子类进行重写。
+end note
+note left of Template::template
+模板方法：定义了算法的步骤
+public void template(){
+    m1();
+    m2();
+    m3();
+}
+end note
+note right of Template::m2
+子类必须重写的方法
+end note
+
+class A{
+    void m1()
+    void m2()
+}
+class B{
+    void m2()
+}
+
+Template <|-- A
+Template <|-- B
+
+@enduml

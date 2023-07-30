@@ -1,0 +1,59 @@
+@startuml
+
+interface AbstractProduct1{}
+note left of AbstractProduct1: 螺丝
+interface AbstractProduct2{}
+note right of AbstractProduct2: 螺母
+class ProductA{}
+note bottom of ProductA: 6mm螺丝
+class ProductB{}
+note bottom of ProductB: 8mm螺丝
+class ProductC{}
+note bottom of ProductC: 6mm螺母
+class ProductD{}
+note bottom of ProductD: 8mm螺母
+
+interface AbstractFactory{
+    AbstractProduct1 getAbstractProduct1()
+    AbstractProduct2 getAbstractProduct2()
+}
+class AFactory{
+    AbstractProduct1 getAbstractProduct1()
+    AbstractProduct2 getAbstractProduct2()
+}
+note top of AFactory
+6mm工厂
+AbstractProduct1 getAbstractProduct1(){
+    return new ProductA();
+}
+AbstractProduct2 getAbstractProduct2(){
+    return new ProductC();
+}
+end note
+class BFactory{
+    AbstractProduct1 getAbstractProduct1()
+    AbstractProduct2 getAbstractProduct2()
+}
+note top of BFactory
+8mm工厂
+AbstractProduct1 getAbstractProduct1(){
+    return new ProductB();
+}
+AbstractProduct2 getAbstractProduct2(){
+    return new ProductD();
+}
+end note
+
+AbstractFactory <|.. AFactory
+AbstractFactory <|.. BFactory
+AbstractProduct1 <|.. ProductA
+AbstractProduct1 <|.. ProductB
+AbstractProduct2 <|.. ProductC
+AbstractProduct2 <|.. ProductD
+
+AFactory ..> ProductA
+AFactory ..> ProductC
+BFactory ..> ProductB
+BFactory ..> ProductD
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+
+interface State {
+    handle()
+}
+note left
+状态接口
+handle() 可能会改变Context状态
+end note
+
+class State1 {
+    handle()
+}
+
+class State2 {
+    handle()
+}
+
+class Context {
+    State s
+    request()
+}
+
+note right
+上下文对象，具有状态的对象
+request() {
+    // 由状态来处理
+    s.handle();
+
+    // 也可在这里来改变状态，
+    // 而不是在状态里面
+}
+end note
+
+State <|.. State1
+State <|.. State2
+State <- Context
+
+@enduml

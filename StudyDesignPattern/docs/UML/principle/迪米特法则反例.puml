@@ -1,0 +1,25 @@
+@startuml
+
+class A{
+    void m1(B b);
+}
+note right of A
+m1(B b){
+    C c = b.getC();
+    print(c);
+}
+end note
+
+class B{
+    C c;
+    C getC();
+}
+
+class C{
+}
+
+A ..> B
+A ..> C
+B ..> C
+
+@enduml

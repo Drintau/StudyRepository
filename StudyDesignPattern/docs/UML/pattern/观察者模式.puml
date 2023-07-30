@@ -1,0 +1,83 @@
+@startuml
+
+interface Subject {
+    void addObserver(Observer o)
+    void removeObserver(Observer o)
+    void notifyObservers()
+}
+note left
+抽象主体，被观察者
+定义添加、移除、通知观察者的方法
+end note
+
+interface Observer {
+    void update()
+}
+note right
+抽象观察者
+end note
+
+class ConcreteSubject {
+    String a1
+    List<Observer> observers
+    public void addObserver(Observer o)
+    public void removeObserver(Observer o)
+    private void notifyObservers()
+    void setA1(String s)
+}
+note bottom
+具体主体
+public void addObserver(Observer o){
+    observers.add(o);
+}
+public void removeObserver(Observer o){
+    observers.remove(o);
+}
+private void notifyObservers(){
+    for(Observer o:observers){
+        o.update();
+    }
+}
+
+public void setA1(String s){
+    this.a1 = s;
+
+    // 通知观察者
+    notifyObservers();
+}
+end note
+note left of ConcreteSubject::a1
+a1就是一个普通的属性
+假设是观察者要用到的属性
+end note
+note left of ConcreteSubject::observers
+主体维护记录了所有观察者的集合
+end note
+
+class ConcreteObserver1 {
+    Subject subject
+    public ConcreteObserver1(Subject s)
+    void update()
+}
+note bottom
+具体观察者1
+public ConcreteObserver1(Subject s){
+    this.subject = s;
+
+    // 注册到主体中，可以在外面单独调用
+    s.addObserver(this);
+}
+
+public void update(){
+    // 例如对s.a1操作
+}
+end note
+note right of ConcreteObserver1::subject
+观察者持有主体的引用
+end note
+
+Subject .> Observer
+Subject <|.. ConcreteSubject
+Observer <|.. ConcreteObserver1
+
+@enduml
