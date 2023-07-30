@@ -1,7 +1,9 @@
 ---
 layout: default
-title: 学习Redis数据库
+title: 学习Redis
 ---
+
+# 学习Redis
 
 1. [介绍和安装](docs/01介绍和安装.md)
 2. [数据结构和命令](docs/02数据结构和命令.md)
